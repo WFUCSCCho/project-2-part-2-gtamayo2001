@@ -21,6 +21,9 @@ You are given a working program that blurred an image. Apply the program to seve
 
 Write a brief description of the strategy you employed to improve the performance of the blur program. You will not be graded on how much your strategy improved the performance or even whether performance improved. All I am looking for here is that you gave it some thought and you were able to reason out a strategy.
 
+**My strategy**
+Since we used shared memory in project 2 part 1 with MatrixMultTiled.cu, I incorporated the code from there to be applied to blur.cu in this project. Instead of multiplying two matrices, the image would serve as one matrix that would need to be loaded up into shared memory. Shared memory should be faster than using global memory in the original script, but from the performance analysis, it seems that it only saved ~0.002 seconds. 
+
 **Functional Requirements**
 
 * Command Line Argument: The program must use a command line argument that corresponds to filename.
@@ -46,6 +49,7 @@ Part 2 of your project will be submitted via GitHub and the link to your reposit
 You may only seek aid from the course professor or explicitly specified assistants. Tutors are not permitted. You may discuss only basic C/C++ syntax with others. Any other discussions of the project are strictly prohibited.Your code and implementation must be the product of your own work.
 
 **AI Usage**
+
 https://chat.deepseek.com/share/wrhhlu91i4sonej4dx 
 
 **Performance Analysis**
