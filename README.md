@@ -49,5 +49,7 @@ You may only seek aid from the course professor or explicitly specified assistan
 https://chat.deepseek.com/share/wrhhlu91i4sonej4dx 
 
 **Performance Analysis**
+
 blur_orig time (global memory): 0.006414150 seconds
+
 blur time (shared memory): 0.004527698  seconds
