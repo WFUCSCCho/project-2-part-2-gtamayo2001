@@ -44,3 +44,6 @@ Part 2 of your project will be submitted via GitHub and the link to your reposit
 
 **Pledged Work Policy** 
 You may only seek aid from the course professor or explicitly specified assistants. Tutors are not permitted. You may discuss only basic C/C++ syntax with others. Any other discussions of the project are strictly prohibited.Your code and implementation must be the product of your own work.
+
+**AI Usage**
+https://chat.deepseek.com/share/wrhhlu91i4sonej4dx 
