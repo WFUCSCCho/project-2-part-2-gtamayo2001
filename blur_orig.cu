@@ -3,6 +3,8 @@
 
 #include <cuda.h>
 #include <vector_types.h>
+#include <time.h>
+#include <cuda_runtime.h>  
 
 #define BLUR_SIZE 16 // size of surrounding image is 2X this
 
@@ -86,6 +88,12 @@ int main(int argc, char **argv)
     cudaMalloc(&d_in, img_size);
     cudaMalloc(&d_out, img_size);
 
+    /* Google AI Overview Prompt: "cudaEventRecord but for cpu on C" 
+       https://linux.die.net/man/3/clock_gettime */
+    struct timespec start, end;               // initialize vars. to store timing data (struct timespec gives ns precision)
+    clock_gettime(CLOCK_MONOTONIC, &start);   // current time- start
+
+
     cudaMemcpy(d_in, input_image.data(), img_size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_out, input_image.data(), img_size, cudaMemcpyHostToDevice);
 
@@ -102,6 +110,9 @@ int main(int argc, char **argv)
 
     cudaMemcpy(output_image.data(), d_out, img_size, cudaMemcpyDeviceToHost);
     
+    // Get time
+    clock_gettime(CLOCK_MONOTONIC, &end);     // current time- end
+
     
     //Set updated pixels
     for(int x = 0; x < width; x++)
@@ -119,4 +130,13 @@ int main(int argc, char **argv)
 
     cudaFree(d_in);
     cudaFree(d_out);
+
+    // Calculate Time
+     /* get long int form for most decimal places */
+    long seconds= end.tv_sec - start.tv_sec;             // seconds difference
+    long nanoseconds= end.tv_nsec - start.tv_nsec;       // ns difference
+    /* convert long int to decimals */
+    double execTime= seconds + nanoseconds/1000000000.0; // time in seconds
+    printf("\nExecution time: %.9f seconds\n", execTime);
+
 }
