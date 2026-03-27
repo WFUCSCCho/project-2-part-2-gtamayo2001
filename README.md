@@ -54,6 +54,4 @@ https://chat.deepseek.com/share/wrhhlu91i4sonej4dx
 
 **Performance Analysis**
 
-blur_orig time (global memory): 0.006414150 seconds
-
-blur time (shared memory): 0.004527698  seconds
+<img width="626" height="455" alt="image" src="https://github.com/user-attachments/assets/f0c85cd9-b5b1-4469-a12c-3e2b3cb92109" />
